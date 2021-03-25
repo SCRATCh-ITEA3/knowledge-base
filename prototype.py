@@ -32,8 +32,8 @@ class Processor(object):
                 for i, e in enumerate(self.guides):
                     if (e.Organisation == organisation):
                         occ.append(e)
-
-        return occ
+        #https://stackoverflow.com/questions/403421/how-to-sort-a-list-of-objects-based-on-an-attribute-of-the-objects                        
+        return sorted(occ, key=lambda x: int(x.DCMSCodeOfPracticeGuideLinesNumber), reverse=False)
 
 class CodeOfPracticeGuideline( object ):
     """ 
