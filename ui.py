@@ -24,7 +24,7 @@ def index():
 def test():
     select = request.form.getlist('comp_select')
     listOfGuides = processor.getOccurencesOfOrganisation(select)
-    return render_template('result.html', data = listOfGuides) # just to see what select is
+    return render_template('index.html', data = data, guides = listOfGuides) # just to see what select is
 
 if __name__=='__main__':
 
