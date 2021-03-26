@@ -10,6 +10,22 @@ FILENAME = "Mapping-of-Code-of-Practice-to-recommendations-and-standards_v4.json
 GUIDEKEY = "DCMS Code of Practice Guidelines Number"
 ORGANIZATIONKEY = "Organisation"
 
+guideNames = {
+    'CoP 1':'No default passwords',
+    'CoP 2':'Implement a vulnerability disclosure policy',
+    'CoP 3':'Keep software updated',
+    'CoP 4':'Securely store credentials and security-sensitive data',
+    'CoP 5':'Communicate securely',
+    'CoP 6':'Minimise exposed attack surfaces',
+    'CoP 7':'Ensure software integrity',
+    'CoP 8':'Ensure that personal data is protected',
+    'CoP 9':'Make systems resilient to outages',
+    'CoP 10':'Monitor system telemetry data',
+    'CoP 11':'Make it easy for consumers to delete personal data',
+    'CoP 12':'Make installation and maintenance of devices easy',
+    'CoP 13':'Validate input data',
+}
+
 class Processor(object):
 
     def __init__(self, guides):
@@ -51,6 +67,7 @@ class CodeOfPracticeGuideline( object ):
     def __init__(self):
 
         self.DCMSCodeOfPracticeGuideLinesNumber = ""
+        self.GuideName = ""
         self.Organisation = ""
         self.StandardOrRecommendationName = ""
         self.RecommendationNumberOrSection = ""
@@ -77,6 +94,7 @@ class CodeOfPracticeReader( object ):
             if GUIDEKEY in item:
                 guideItem = CodeOfPracticeGuideline()
                 guideItem.DCMSCodeOfPracticeGuideLinesNumber = item["DCMS Code of Practice Guidelines Number"]
+                guideItem.GuideName = translateGuideId2GuideName(int(guideItem.DCMSCodeOfPracticeGuideLinesNumber))
                 guideItem.Organisation = item["Organisation"]
                 guideItem.StandardOrRecommendationName = item["Standard / Recommendation Name"]
                 guideItem.RecommendationNumberOrSection = item["Recommendation Number / Section"]
@@ -115,6 +133,9 @@ def propsOf(l):
     print(l.Notes)
     print(l.AddedAtVersion)
     print ()
+
+def translateGuideId2GuideName(id):
+    return guideNames['CoP {0}'.format(id)]
 
 if __name__ == '__main__':
     gl = CodeOfPracticeReader()

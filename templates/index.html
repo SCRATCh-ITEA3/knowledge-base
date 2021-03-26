@@ -10,7 +10,7 @@
     /* For desktop: */
     .col-1 {width: 8.33%;}
     .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
+    .col-3 {width: 25%;text-align: justify;}
     .col-4 {width: 33.33%;}
     .col-5 {width: 41.66%;}
     .col-6 {width: 50%;}
@@ -28,7 +28,12 @@
 </style>
 <title>Mapping Interface</title>
 <h1>Mapping interface</h1>
+<a href='https://iotsecuritymapping.uk/open-data-files-latest-v4/'>database online source</a>
 <h2>Select organisations</h2>
+<p>
+  Press ctrl+click for multiple items  and <br> 
+  shift-click for lists.
+</p>
 <form class="form-inline" method="POST" action="{{ url_for('test') }}">
   <div class="form-group">
     <div class="input-group">
@@ -46,6 +51,7 @@
 {% for g in guides %}
 <p>
   <b>Guide No: </b>{{g.DCMSCodeOfPracticeGuideLinesNumber}}<br>
+  <b>Guide : </b>{{g.GuideName}}<br>
   <b>Organisation: </b>{{g.Organisation}}<br>
   <b>Standard/Recomendation name: </b>{{g.StandardOrRecommendationName}}<br>
   <b>section: </b>{{g.RecommendationNumberOrSection}}<br>
