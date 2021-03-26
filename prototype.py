@@ -51,6 +51,15 @@ class Processor(object):
         #https://stackoverflow.com/questions/403421/how-to-sort-a-list-of-objects-based-on-an-attribute-of-the-objects                        
         return sorted(occ, key=lambda x: int(x.DCMSCodeOfPracticeGuideLinesNumber), reverse=False)
 
+    def getMatrix(self):
+        """
+            return matrix of guides against organisations involved
+        """
+
+        for g in self.guides:
+            pass
+
+
 class CodeOfPracticeGuideline( object ):
     """ 
         Fields:
@@ -135,7 +144,10 @@ def propsOf(l):
     print ()
 
 def translateGuideId2GuideName(id):
-    return guideNames['CoP {0}'.format(id)]
+    if (id in [1,2,3,4,5,6,7,8,9,10,11,12,13]):
+        return guideNames['CoP {0}'.format(id)]
+    else:
+        return "ID Nr NOT FOUND"
 
 if __name__ == '__main__':
     gl = CodeOfPracticeReader()

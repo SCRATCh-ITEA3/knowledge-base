@@ -26,6 +26,11 @@ def test():
     listOfGuides = processor.getOccurencesOfOrganisation(select)
     return render_template('index.html', data = data, guides = listOfGuides) # just to see what select is
 
+@app.route('/table')
+def table():
+    return "table"
+
+
 if __name__=='__main__':
 
     print ("Setup server")
