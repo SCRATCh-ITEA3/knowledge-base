@@ -50,15 +50,63 @@ webresouce and stores the data in a structure.</p>
 <em class="property">class </em><code class="descclassname">prototype.</code><code class="descname">Processor</code><span class="sig-paren">(</span><em>guides</em><span class="sig-paren">)</span><a class="headerlink" href="#prototype.Processor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Processor returns an object which can do manipulations
 on the set of guides.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>guides</strong> (<em>CodeOfPracticeGuide</em>) – list of guides</td>
+</tr>
+</tbody>
+</table>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gl</span> <span class="o">=</span> <span class="n">CodeOfPracticeReader</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gl</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">guides</span> <span class="o">=</span> <span class="n">gl</span><span class="o">.</span><span class="n">getGuides</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">processor</span> <span class="o">=</span> <span class="n">Processor</span><span class="p">(</span><span class="n">guides</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">prototype</span> <span class="k">as</span> <span class="nn">pt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span> <span class="o">=</span> <span class="n">processor</span><span class="o">.</span><span class="n">getOccurencesOfOrganisation</span><span class="p">([</span><span class="s2">&quot;IEEE&quot;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span> <span class="nb">print</span> <span class="p">(</span><span class="n">propsOf</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">propsOf</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="go">GuideLine No: 1</span>
+<span class="go">IEEE</span>
+<span class="go">IoT Security Principles and Best Practices</span>
+<span class="go">5</span>
+<span class="go">IoT devices should not use easy-to-guess username/password credentials, such as admin/admin. Devices should not use default credentials that are invariant across multiple devices and should not include back doors and debug-mode settings (secret credentials established by the device&#39;s programmer) because, once guessed, they can be used to hack many devices. </span>
+<span class="go">Each device should have a unique default username/password, perhaps printed on its casing, and preferably resettable by the user. Passwords should be sophisticated enough to resist educated guessing and so-called brute force methods.</span>
+<span class="go">https://internetinitiative.ieee.org/images/files/resources/white_papers/internet_of_things_feb2017.pdf</span>
+<span class="go">Use strong authentication</span>
+<span class="go">1</span>
 </pre></div>
 </div>
+<dl class="method">
+<dt id="prototype.Processor.generateSetOfOrganisations">
+<code class="descname">generateSetOfOrganisations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prototype.Processor.generateSetOfOrganisations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a set of all organisations occuring in 
+all guides.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="prototype.Processor.getMatrix">
+<code class="descname">getMatrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prototype.Processor.getMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return matrix of guides against organisations involved</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="prototype.Processor.getOccurencesOfOrganisation">
+<code class="descname">getOccurencesOfOrganisation</code><span class="sig-paren">(</span><em>organisations</em><span class="sig-paren">)</span><a class="headerlink" href="#prototype.Processor.getOccurencesOfOrganisation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an ordered list (by Guide ID) of guides
+which belong to organisations listed in the 
+argument variable (list) organisations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Params organisations:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">list of organisations</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">list of CodeOfPractiveGuideline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">sorted list of guides</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>

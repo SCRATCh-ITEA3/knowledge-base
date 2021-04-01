@@ -31,6 +31,7 @@ Class overview:
 .. automodule:: prototype
 
 .. autoclass:: Processor
+   :members:
 
 
 Indices and tables

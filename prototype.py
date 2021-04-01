@@ -5,6 +5,7 @@ Author: M.A. Marosvolgyi 2021
 
 import json 
 import pdb 
+import doctest
 
 FILENAME = "Mapping-of-Code-of-Practice-to-recommendations-and-standards_v4.json"
 GUIDEKEY = "DCMS Code of Practice Guidelines Number"
@@ -31,14 +32,23 @@ class Processor(object):
         Processor returns an object which can do manipulations
         on the set of guides. 
 
+        :param guides: list of guides 
+        :type guides: CodeOfPracticeGuide
+
         example:
         
-        >>> gl = CodeOfPracticeReader()
-        >>> gl.setup()
-        >>> guides = gl.getGuides()
-        >>> processor = Processor(guides)
+        >>> import prototype as pt
         >>> list = processor.getOccurencesOfOrganisation(["IEEE"])
-        >>> for l in list: print (propsOf(l))
+        >>> print (pt.propsOf(list[0]))
+        GuideLine No: 1
+        IEEE
+        IoT Security Principles and Best Practices
+        5
+        IoT devices should not use easy-to-guess username/password credentials, such as admin/admin. Devices should not use default credentials that are invariant across multiple devices and should not include back doors and debug-mode settings (secret credentials established by the device's programmer) because, once guessed, they can be used to hack many devices. 
+        Each device should have a unique default username/password, perhaps printed on its casing, and preferably resettable by the user. Passwords should be sophisticated enough to resist educated guessing and so-called brute force methods.
+        https://internetinitiative.ieee.org/images/files/resources/white_papers/internet_of_things_feb2017.pdf
+        Use strong authentication
+        1
 
     """
 
@@ -63,6 +73,10 @@ class Processor(object):
             Returns an ordered list (by Guide ID) of guides
             which belong to organisations listed in the 
             argument variable (list) organisations.
+
+            :params organisations: list of organisations
+            :type: list of CodeOfPractiveGuideline
+            :return: sorted list of guides
         """
         occ = []
         for organisation in organisations:    
@@ -191,9 +205,7 @@ if __name__ == '__main__':
 
     list = processor.getOccurencesOfOrganisation(["IEEE"])
 
-    for l in list:
-        print (propsOf(l))
-
+    print (propsOf(list[0]))
 
 
 
