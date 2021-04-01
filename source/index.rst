@@ -1,0 +1,42 @@
+.. practice2standards documentation master file, created by
+   sphinx-quickstart on Thu Mar 25 23:03:56 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to practice2standards's documentation!
+==============================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+
+Aim is to help navigate the mapping database. 
+
+https://iotsecuritymapping.uk/open-data-files-latest-v4/
+
+There are two components in this project. The backend which reads the database from local file or 
+webresouce and stores the data in a structure. 
+
+The front end allows for making structures/filters and export.
+
+..code-block::bash
+
+python3 ui.py
+
+
+Class overview:
+===============
+
+.. automodule:: prototype
+
+.. autoclass:: Processor
+   :members:
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
