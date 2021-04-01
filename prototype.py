@@ -27,6 +27,20 @@ guideNames = {
 }
 
 class Processor(object):
+    """
+        Processor returns an object which can do manipulations
+        on the set of guides. 
+
+        example:
+        
+        >>> gl = CodeOfPracticeReader()
+        >>> gl.setup()
+        >>> guides = gl.getGuides()
+        >>> processor = Processor(guides)
+        >>> list = processor.getOccurencesOfOrganisation(["IEEE"])
+        >>> for l in list: print (propsOf(l))
+
+    """
 
     def __init__(self, guides):
 
@@ -34,7 +48,10 @@ class Processor(object):
         self.setOfOrganisations = self.generateSetOfOrganisations()
 
     def generateSetOfOrganisations(self):
-
+        """
+            Generates a set of all organisations occuring in 
+            all guides.
+        """
         organisations = set()
         for i, element in enumerate(self.guides):
             organisations.add(element.Organisation)
@@ -42,6 +59,11 @@ class Processor(object):
         return organisations
 
     def getOccurencesOfOrganisation(self, organisations):
+        """
+            Returns an ordered list (by Guide ID) of guides
+            which belong to organisations listed in the 
+            argument variable (list) organisations.
+        """
         occ = []
         for organisation in organisations:    
             if organisation in self.setOfOrganisations:
@@ -53,12 +75,22 @@ class Processor(object):
 
     def getMatrix(self):
         """
-            return matrix of guides against organisations involved
+            Return matrix of guides against organisations involved
         """
+
+        numberOfOrganisations = len(self.setOfOrganisations)
+        numberOfCoPs = len(guideNames)
+
+        # Initialize nested list, we call it 'matrix' 
+        matrix = [['']*numberOfOrganisations] * numberOfCoPs
+
+        # In order to gen the table we need an ordered set set of 
+        # organisations. 
+
+        coordinateOfOrganisations = list(self.setOfOrganisations)
 
         for g in self.guides:
             pass
-
 
 class CodeOfPracticeGuideline( object ):
     """ 

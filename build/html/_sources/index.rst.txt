@@ -25,6 +25,14 @@ The front end allows for making structures/filters and export.
 python3 ui.py
 
 
+Class overview:
+===============
+
+.. automodule:: prototype
+
+.. autoclass:: Processor
+
+
 Indices and tables
 ==================
 
