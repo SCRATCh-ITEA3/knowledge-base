@@ -10,8 +10,11 @@ Welcome to practice2standards's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+Introduction
+------------
 
-Aim is to help navigate the mapping database. 
+As part of the SCRATCh project: https://itea3.org/project/scratch.html research phase this tool
+was deveopped to help navigate DCMS data (requirements/best practices).
 
 https://iotsecuritymapping.uk/open-data-files-latest-v4/
 
@@ -23,6 +26,35 @@ The front end allows for making structures/filters and export.
 ..code-block::bash
 
 python3 ui.py
+
+Examples
+--------
+
+The follwing code will return all the properties of the guides beloning to
+the organization `IEEE`. 
+
+.. code-block:: python
+   :linenos:
+
+   gl = CodeOfPracticeReader()
+   gl.setup()
+
+   guides = gl.getGuides()
+
+   processor = Processor(guides)
+
+   list = processor.getOccurencesOfOrganisation(["IEEE"])
+
+   for item in list:
+      print (propsOf(item))
+
+Multiple organizations can be selected:
+
+.. code-block:: python
+
+   list = processor.getOccurencesOfOrganisation(["IEEE", "W3C"])
+
+etc, etc.
 
 
 Class overview:

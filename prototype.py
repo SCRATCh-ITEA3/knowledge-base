@@ -11,6 +11,10 @@ FILENAME = "Mapping-of-Code-of-Practice-to-recommendations-and-standards_v4.json
 GUIDEKEY = "DCMS Code of Practice Guidelines Number"
 ORGANIZATIONKEY = "Organisation"
 
+"""
+guide names
+"""
+
 guideNames = {
     'CoP 1':'No default passwords',
     'CoP 2':'Implement a vulnerability disclosure policy',
