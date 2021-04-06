@@ -72,6 +72,19 @@ class Processor(object):
 
         return organisations
 
+    def getListOfOrganizations(self):
+        """
+            Returns a list of all organizations. 
+            This is basically a conversion from the set of organizations
+            to a list.
+
+            :return: list of organizations
+            :rtype: list
+
+        """
+
+        return list(self.setOfOrganisations)
+
     def getOccurencesOfOrganisation(self, organisations):
         """
             Returns an ordered list (by Guide ID) of guides
@@ -100,15 +113,20 @@ class Processor(object):
         numberOfCoPs = len(guideNames)
 
         # Initialize nested list, we call it 'matrix' 
-        matrix = [['']*numberOfOrganisations] * numberOfCoPs
-
+        #matrix = [['']*numberOfOrganisations] * numberOfCoPs
+        matrix = [['.']*numberOfCoPs] * numberOfOrganisations
         # In order to gen the table we need an ordered set set of 
         # organisations. 
 
-        coordinateOfOrganisations = list(self.setOfOrganisations)
+        coordinateOfOrganisations = self.getListOfOrganizations()
 
-        for g in self.guides:
-            pass
+        for i, o in enumerate(coordinateOfOrganisations):
+            guides = self.getOccurencesOfOrganisation([o])
+            for j, g in enumerate(guides):
+                row = int(g.DCMSCodeOfPracticeGuideLinesNumber) - 1
+                matrix[i][row] = ' '
+
+        return matrix
 
 class CodeOfPracticeGuideline( object ):
     """ 
@@ -199,6 +217,22 @@ def translateGuideId2GuideName(id):
     else:
         return "ID Nr NOT FOUND"
 
+def dumpMatrix(myMatrix):
+
+    myStr = ""
+
+    for row, col in enumerate(myMatrix):
+        myStr += "{0}:".format(row + 1)
+        for item in col:
+            print (type(item))
+            if item=='.':
+                pass
+            else:
+                myStr += "{0}\t".format(item.DCMSCodeOfPracticeGuideLinesNumber)
+        myStr += "<br>\n"
+    
+    return myStr
+
 if __name__ == '__main__':
     gl = CodeOfPracticeReader()
     gl.setup()
@@ -207,11 +241,11 @@ if __name__ == '__main__':
 
     processor = Processor(guides)
 
-    list = processor.getOccurencesOfOrganisation(["IEEE"])
+    mylist = processor.getOccurencesOfOrganisation(["IEEE"])
 
-    print (propsOf(list[0]))
+    print (propsOf(mylist[0]))
 
-
+    dumpMatrix (processor.getMatrix())
 
 
     #pdb.set_trace()

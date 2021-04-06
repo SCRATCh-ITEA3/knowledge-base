@@ -30,6 +30,24 @@ python3 ui.py
 Examples
 --------
 
+Simple startup front-end
+++++++++++++++++++++++++
+
+From the shell type:
+
+.. code-block:: bash
+
+   python3 ui.py
+
+Open a browser and type:
+
+http://localhost:5000
+
+in the address-bar.
+
+Backend usage
++++++++++++++
+
 The follwing code will return all the properties of the guides beloning to
 the organization `IEEE`. 
 

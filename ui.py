@@ -4,6 +4,7 @@ Author: M.A. Marosvolgyi 2021
 """
 
 from flask import Flask, render_template, redirect, request, url_for
+from markupsafe import Markup
 import prototype
 
 
@@ -28,7 +29,8 @@ def test():
 
 @app.route('/table')
 def table():
-    return "table"
+    theMatrix = Markup(prototype.dumpMatrix(processor.getMatrix()))
+    return render_template('table.html', theMatrix = theMatrix)
 
 
 if __name__=='__main__':
@@ -40,10 +42,13 @@ if __name__=='__main__':
     guides = gl.getGuides()
     processor = prototype.Processor(guides)
 
-    list = list(processor.generateSetOfOrganisations())
+    myList = list(processor.generateSetOfOrganisations())
 
     data = []
-    for i in list:
+    
+    for i in myList:
         data.append({'name':i})
+
+
 
     app.run(debug=True)
