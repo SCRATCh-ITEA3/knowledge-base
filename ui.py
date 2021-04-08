@@ -29,7 +29,7 @@ def test():
 
 @app.route('/table')
 def table():
-    theMatrix = Markup(prototype.dumpMatrix(processor.getMatrix()))
+    theMatrix = Markup(prototype.dumpMatrix(processor))
     return render_template('table.html', theMatrix = theMatrix)
 
 

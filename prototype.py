@@ -220,7 +220,7 @@ def translateGuideId2GuideName(id):
     else:
         return "ID Nr NOT FOUND"
 
-def dumpMatrix(myMatrix):
+def dumpMatrix( pr ):
     """
         Genereate html style table from the organisation versus 
         guide matrix.
@@ -230,7 +230,16 @@ def dumpMatrix(myMatrix):
         :rtype: string
     """
 
+    myMatrix = pr.getMatrix()
+
     myStr = "<table>"
+
+    myStr += "<tr><th></th>"
+
+    for i in guideNames:
+        myStr += "<th>" + i + "</th>"
+
+    myStr += "</tr>"
 
     #myStr += "<tr><th></th>"
 
@@ -243,7 +252,7 @@ def dumpMatrix(myMatrix):
                 myStr += " "
             else:
                 #myStr += ""{0}\t".format(item.DCMSCodeOfPracticeGuideLinesNumber)"
-                myStr += "X"
+                myStr += "<a href='/' >X</a>"
         myStr += "</th>"
         myStr += "</tr>"
     myStr += "</table>"
