@@ -79,8 +79,6 @@ Class overview:
 ===============
 
 .. automodule:: prototype
-
-.. autoclass:: Processor
    :members:
 
 

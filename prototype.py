@@ -203,6 +203,12 @@ class CodeOfPracticeReader( object ):
                     print (element)
 
 def propsOf(l):
+    """
+        Prints all props of a guide item
+
+        :params l: guide item
+        :return: print to screen
+    """
 
     print("GuideLine No: {0}".format(l.DCMSCodeOfPracticeGuideLinesNumber))
     print(l.Organisation)
@@ -215,6 +221,15 @@ def propsOf(l):
     print ()
 
 def translateGuideId2GuideName(id):
+    """
+        Translate a guide id nr (1,2,3,...,13)
+        to CoP key name.
+        This is a helper function
+
+        :params id: integer [1,..,13]
+        :return: CoP <NR>
+        :rtype: string
+    """
     if (id in [1,2,3,4,5,6,7,8,9,10,11,12,13]):
         return guideNames['CoP {0}'.format(id)]
     else:
@@ -224,8 +239,9 @@ def dumpMatrix( pr ):
     """
         Genereate html style table from the organisation versus 
         guide matrix.
+        This is a helper function.
 
-        :params myMatrix: nested list 
+        :params pr: Processor instance
         :return: html table string
         :rtype: string
     """

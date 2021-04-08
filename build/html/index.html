@@ -96,6 +96,28 @@ the organization <cite>IEEE</cite>.</p>
 <p>Author: M.A. Marosvolgyi 2021
 (c)Anywi</p>
 <dl class="class">
+<dt id="prototype.CodeOfPracticeGuideline">
+<em class="property">class </em><code class="descclassname">prototype.</code><code class="descname">CodeOfPracticeGuideline</code><a class="headerlink" href="#prototype.CodeOfPracticeGuideline" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Fields:</dt>
+<dd>DCMS Code of Practice Guidelines Number
+Organisation
+Standard / Recommendation Name
+Recommendation Number / Section
+Recommendation Extracted from Linked Source
+Web Link
+Notes
+Added at Version</dd>
+</dl>
+</dd></dl>
+
+<dl class="data">
+<dt id="prototype.ORGANIZATIONKEY">
+<code class="descclassname">prototype.</code><code class="descname">ORGANIZATIONKEY</code><em class="property"> = 'Organisation'</em><a class="headerlink" href="#prototype.ORGANIZATIONKEY" title="Permalink to this definition">¶</a></dt>
+<dd><p>guide names</p>
+</dd></dl>
+
+<dl class="class">
 <dt id="prototype.Processor">
 <em class="property">class </em><code class="descclassname">prototype.</code><code class="descname">Processor</code><span class="sig-paren">(</span><em>guides</em><span class="sig-paren">)</span><a class="headerlink" href="#prototype.Processor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Processor returns an object which can do manipulations
@@ -175,6 +197,62 @@ argument variable (list) organisations.</p>
 </table>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="function">
+<dt id="prototype.dumpMatrix">
+<code class="descclassname">prototype.</code><code class="descname">dumpMatrix</code><span class="sig-paren">(</span><em>pr</em><span class="sig-paren">)</span><a class="headerlink" href="#prototype.dumpMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Genereate html style table from the organisation versus 
+guide matrix.
+This is a helper function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params pr:</th><td class="field-body">Processor instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">html table string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="prototype.propsOf">
+<code class="descclassname">prototype.</code><code class="descname">propsOf</code><span class="sig-paren">(</span><em>l</em><span class="sig-paren">)</span><a class="headerlink" href="#prototype.propsOf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints all props of a guide item</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params l:</th><td class="field-body">guide item</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">print to screen</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="prototype.translateGuideId2GuideName">
+<code class="descclassname">prototype.</code><code class="descname">translateGuideId2GuideName</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#prototype.translateGuideId2GuideName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate a guide id nr (1,2,3,…,13)
+to CoP key name.
+This is a helper function</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params id:</th><td class="field-body">integer [1,..,13]</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">CoP &lt;NR&gt;</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
