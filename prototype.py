@@ -229,20 +229,25 @@ def dumpMatrix(myMatrix):
         :return: html table string
         :rtype: string
     """
-    
-    myStr = ""
+
+    myStr = "<table>"
+
+    #myStr += "<tr><th></th>"
 
     for row, col in enumerate(myMatrix):
-        myStr += "{0:03}:".format(row + 1)
+        myStr += "<tr><th>{0:03}:</th>".format(row + 1)
         for item in col:
+            myStr += "<th>"
             print (type(item))
             if item==' ':
                 myStr += " "
             else:
                 #myStr += ""{0}\t".format(item.DCMSCodeOfPracticeGuideLinesNumber)"
-                myStr += "-"
-        myStr += "<br>\n"
-    
+                myStr += "X"
+        myStr += "</th>"
+        myStr += "</tr>"
+    myStr += "</table>"
+
     return myStr
 
 if __name__ == '__main__':
