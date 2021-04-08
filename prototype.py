@@ -114,17 +114,20 @@ class Processor(object):
 
         # Initialize nested list, we call it 'matrix' 
         #matrix = [['']*numberOfOrganisations] * numberOfCoPs
-        matrix = [['.']*numberOfCoPs] * numberOfOrganisations
+        #matrix = [['.']*numberOfCoPs] * numberOfOrganisations
+
+        matrix = [[' ']*numberOfCoPs for _ in range(numberOfOrganisations)]
+
         # In order to gen the table we need an ordered set set of 
         # organisations. 
 
         coordinateOfOrganisations = self.getListOfOrganizations()
 
         for i, o in enumerate(coordinateOfOrganisations):
-            guides = self.getOccurencesOfOrganisation([o])
-            for j, g in enumerate(guides):
-                row = int(g.DCMSCodeOfPracticeGuideLinesNumber) - 1
-                matrix[i][row] = ' '
+            selOfguides = self.getOccurencesOfOrganisation([o])
+            for j, g in enumerate(selOfguides):
+                col = int(g.DCMSCodeOfPracticeGuideLinesNumber) - 1
+                matrix[i][col] = 'X'
 
         return matrix
 
@@ -218,17 +221,26 @@ def translateGuideId2GuideName(id):
         return "ID Nr NOT FOUND"
 
 def dumpMatrix(myMatrix):
+    """
+        Genereate html style table from the organisation versus 
+        guide matrix.
 
+        :params myMatrix: nested list 
+        :return: html table string
+        :rtype: string
+    """
+    
     myStr = ""
 
     for row, col in enumerate(myMatrix):
-        myStr += "{0}:".format(row + 1)
+        myStr += "{0:03}:".format(row + 1)
         for item in col:
             print (type(item))
-            if item=='.':
-                pass
+            if item==' ':
+                myStr += " "
             else:
-                myStr += "{0}\t".format(item.DCMSCodeOfPracticeGuideLinesNumber)
+                #myStr += ""{0}\t".format(item.DCMSCodeOfPracticeGuideLinesNumber)"
+                myStr += "-"
         myStr += "<br>\n"
     
     return myStr
@@ -245,7 +257,7 @@ if __name__ == '__main__':
 
     print (propsOf(mylist[0]))
 
-    dumpMatrix (processor.getMatrix())
+    print (dumpMatrix (processor.getMatrix()))
 
 
     #pdb.set_trace()
