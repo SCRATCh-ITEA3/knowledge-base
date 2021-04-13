@@ -113,9 +113,6 @@ class Processor(object):
         numberOfCoPs = len(guideNames)
 
         # Initialize nested list, we call it 'matrix' 
-        #matrix = [['']*numberOfOrganisations] * numberOfCoPs
-        #matrix = [['.']*numberOfCoPs] * numberOfOrganisations
-
         matrix = [[' ']*numberOfCoPs for _ in range(numberOfOrganisations)]
 
         # In order to gen the table we need an ordered set set of 
