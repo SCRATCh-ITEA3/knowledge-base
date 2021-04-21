@@ -12,6 +12,7 @@ import prototype
     got help from:
         https://stackoverflow.com/questions/32019733/getting-value-from-select-tag-using-flask
         https://stackoverflow.com/questions/12502646/access-multiselect-form-field-in-flask
+        https://stackoverflow.com/questions/30323224/deploying-a-minimal-flask-app-in-docker-server-connection-issues
 
 """
 
@@ -34,7 +35,6 @@ def table():
 
 
 if __name__=='__main__':
-
     print ("Setup server")
 
     gl = prototype.CodeOfPracticeReader()
@@ -45,10 +45,10 @@ if __name__=='__main__':
     myList = list(processor.generateSetOfOrganisations())
 
     data = []
-    
+
     for i in myList:
         data.append({'name':i})
 
 
 
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
