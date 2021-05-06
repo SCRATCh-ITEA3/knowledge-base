@@ -12,7 +12,10 @@ GUIDEKEY = "DCMS Code of Practice Guidelines Number"
 ORGANIZATIONKEY = "Organisation"
 
 """
-guide names
+guide names as:
+  https://www.gov.uk/government/publications/code-of-practice-for-consumer-iot-security
+  see ./literature/Code
+  and ./artwork/CoP.png
 """
 
 guideNames = {
