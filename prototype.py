@@ -34,6 +34,14 @@ guideNames = {
     'CoP 13':'Validate input data',
 }
 
+"""
+OWASP
+https://owasp.org/www-pdf-archive/OWASP-IoT-Top-10-2018-final.pdf
+
+
+"""
+
+
 class Processor(object):
     """
         Processor returns an object which can do manipulations
