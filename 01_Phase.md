@@ -1,5 +1,5 @@
 Place of tool in DevOps Chain: 
-Deploy
+Plan
 
 Place of tool in Methodology:
-Comply
+Constrain
