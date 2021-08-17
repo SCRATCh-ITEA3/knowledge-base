@@ -13,23 +13,18 @@ The dataset was published in 2018 and had 4 revisions, there is no information o
  
 
 ##Structure of the tool##
-The tool uses Phyton to download the external database in a Json file saved as Mapping-of-Code-of-Practice-to-recommendations-and-standards_v4.json
-
-(further explanation marcell)
+XX.py looks for update of Mapping-of-Code-of-Practice-to-recommendations-and-standards_v4.json on the DCMS website, if update available it will be donloaded as latest version.
+prototype.py converts the latest Mapping-of-Code-of-Practice-to-recommendations-and-standards_vx.json file to a internal datastructure in memory.
+by executing ui.py in powershell or unixscript a flask webserver will initiated on port 5000.
+opening http://localhost:5000 will open the interface page to the data stored in memory.
 
 
 ## Implementation
-Execute either the native python code or use the docker version.
-Then open a browser and go to `localhost:5000`
+see knowledge-base/build/latex/practice2standards.pdf
 
 
-### native ?
-Start by
-
-```bash
-python3 ui.py
-```
 ### docker
+automation by use of docker
 
 ```bash
 docker build -t scratchkb . && docker run -i -p 5000:5000 scratchkb
@@ -38,8 +33,6 @@ docker build -t scratchkb . && docker run -i -p 5000:5000 scratchkb
 ## Demo of tool
 
 https://scratch-kb.cloud.consider-ip.com/
-
-
 
 
 ### Disclaimer: 
