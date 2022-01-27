@@ -1,6 +1,10 @@
-# UK's Code of Practice for Consumer IoT Security mapping to global recommendations and standards as published by UK Department for Digital, Culture, Media & Sport#
+# UK's Code of Practice for Consumer IoT Security mapping to global recommendations and standards as published by UK Department for Digital, Culture, Media & Sport
 
 ### Source of the data set is https://iotsecuritymapping.uk/open-data-files-latest-v4/
+
+[![SCRATCh - funded by BMBF](https://img.shields.io/badge/part%20of-SCRATCh-yellow)](https://scratch-itea3.eu/)
+![SCRATCh - funded by BMBF](https://img.shields.io/badge/funded%20by-BMBF-blue)
+[![ITEA3](https://img.shields.io/badge/supported%20by-ITEA3-orange)](https://www.itea3.org)
 
 ### This tool has two components
 1. A backend that downloads /reads the sourcefiles from the Url above and transcripts the information into a new data structure.
